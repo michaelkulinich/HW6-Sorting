@@ -1,2 +1,33 @@
 # HW6-Sorting
-We’ve learned several sorting algorithms, as well as which algorithms are “asymptotically” better than others. But though it is important to know that, on paper, a O(n2 ) algorithm runs slower than a O(n lg n) algorithm, it is also important to realize just how drastically these algorithmic choices can effect your program’s performance at run time. To drive this point home, the (simple) assignment for this week is to implement 4 sorting algorithms and time them on large input.
+
+
+
+
+Michael Kulinich
+2328386
+kulinich@chapman.edu
+
+
+Assignment 6
+Sorting
+
+source files:
+    Sorting.cpp
+
+For this assignment we used the textbook and the following sources
+https://www.geeksforgeeks.org/variable-length-arrays-in-c-and-c/
+https://www.geeksforgeeks.org/selection-sort/
+https://www.geeksforgeeks.org/quick-sort/
+https://www.geeksforgeeks.org/b
+https://www.geeksforgeeks.org/cpp-program-for-quicksort/
+
+
+issues:
+
+Instructions to run:
+    g++ Sorting.cpp
+  ./a.out michaelkulinich.txt
+
+
+Comments:
+The makefile wasn't working for this

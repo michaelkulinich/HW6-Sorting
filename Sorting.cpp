@@ -24,12 +24,12 @@ int main(int argc, char const *argv[]) {
     bool firstLine = true;
     int size;
     int countIndex = 0;
-    outFile.open("michaelkulinich.txt");
-    outFile << 1000 << endl;
-    for(int i = 0; i < 1000; i++){
-        outFile << static_cast <float> (rand()) / static_cast <float> (RAND_MAX) << endl;
-    }
-    outFile.close();
+    // outFile.open("michaelkulinich.txt");
+    // outFile << 10000 << endl;
+    // for(int i = 0; i < 10000; i++){
+    //     outFile << static_cast <float> (rand()) / static_cast <float> (RAND_MAX) << endl;
+    // }
+    // outFile.close();
 
     inFile.open(argv[1]);
     if (!inFile) {
@@ -69,41 +69,34 @@ int main(int argc, char const *argv[]) {
         countIndex++;
     }
 
-    // for(int i = 0; i < size; i++){
-    //     cout << bubbleArray[i] << "  " << i << endl;
-    // }
-
-
-    //close file to reset pointer to top of file
         inFile.close();
 
 
+    clock_t bubbleBegin = clock();
+    sorter.BubbleSort(bubbleArray, size);
+    clock_t bubbleEnd = clock();
+    double timeSec = double(bubbleEnd - bubbleBegin) / CLOCKS_PER_SEC;
+    cout <<"bubble Time " << timeSec << " "<< endl;
 
+    clock_t insertBegin = clock();
+    sorter.InsertionSort(insertArray, size);
+    clock_t insertEnd = clock();
+    timeSec = double(insertEnd - insertBegin) / CLOCKS_PER_SEC;
+    cout <<"insert Time " << timeSec << " "<< endl;
 
-
-
-    // clock_t bubbleBegin = clock();
-    // sorter.BubbleSort(bubbleArray, size);
-    // clock_t bubbleEnd = clock();
-    //
-
-    //
-    //
-    //
-    // double timeSec = double(bubbleEnd - bubbleBegin) / CLOCKS_PER_SEC;
-    // cout <<"Bubble Time " << timeSec << " "<< endl;
-    //
+    clock_t selectBegin = clock();
+    sorter.SelectionSort(selectionArray, size);
+    clock_t selectEnd = clock();
+    timeSec = double(selectEnd - selectBegin) / CLOCKS_PER_SEC;
+    cout <<"select Time " << timeSec << " "<< endl;
 
     clock_t quickBegin = clock();
     sorter.Quicksort(quickArray, 0, size - 1);
     clock_t quickEnd = clock();
 
-    double timeSec = double(quickEnd - quickBegin) / CLOCKS_PER_SEC;
+    timeSec = double(quickEnd - quickBegin) / CLOCKS_PER_SEC;
     cout <<"quick Time " << timeSec << " "<< endl;
-    for(int i = 0; i < size; ++i){
-        cout << quickArray[i] << endl;
-    }
-//https://www.geeksforgeeks.org/variable-length-arrays-in-c-and-c/
+
 
 
     return 0;
@@ -140,9 +133,7 @@ void Sorting::SelectionSort(double arr[], int n){
             arr[minIndex] = temp;
         }
     }
-    for(int i = 0; i < n; ++i){
-        cout << arr[i] << endl;
-    }
+
 }
 
 void Sorting::InsertionSort(double arr[], int n){
@@ -162,9 +153,7 @@ void Sorting::InsertionSort(double arr[], int n){
         }
        arr[j + 1] = temp;
     }
-    for(int i = 0; i < n; ++i){
-        cout << arr[i] << endl;
-    }
+
 }
 
 
